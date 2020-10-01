@@ -1,0 +1,8 @@
+airtable-python-wrapper==0.15.1
+certifi==2020.6.20
+chardet==3.0.4
+idna==2.10
+klaviyo==3.0.1
+requests==2.24.0
+simplejson==3.17.2
+urllib3==1.25.10

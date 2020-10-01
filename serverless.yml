@@ -1,0 +1,27 @@
+service: airtable-klaviyo
+
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: python3.8
+  stage: ${opt:stage, 'dev'}
+  timeout: 60
+  environment:
+    AIRTABLE_APP_ID: AIRTABLE_APP_ID
+    AIRTABLE_SECRET_KEY: AIRTABLE_SECRET_KEY
+    KLAVIYO_PUBLIC_TOKEN: KLAVIYO_PUBLIC_TOKEN
+    KLAVIYO_PRIVATE_TOKEN: KLAVIYO_PRIVATE_TOKEN
+    KLAVIYO_LIST: KLAVIYO_LIST
+
+functions:
+  single_customer:
+    handler: handler.single_customer
+    events:
+      - http:
+          path: /single_customer
+          method: POST
+          cors: true
+
+plugins:
+  - serverless-python-requirements
